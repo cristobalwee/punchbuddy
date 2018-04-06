@@ -18,7 +18,8 @@ class HomeView extends React.Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      'cubano-regular': require('../assets/fonts/cubano-regular-webfont.ttf')
+      'cubano-regular': require('../assets/fonts/cubano-regular-webfont.ttf'),
+      'quicksand-light': require('../assets/fonts/Quicksand-Light.ttf')
     });
 
     this.setState({ fontLoaded: true });
@@ -30,8 +31,9 @@ class HomeView extends React.Component {
     }
 
     return (
-      <ScrollView horizontal={true} contentInsetAdjustmentBehavior={"always"}>
+      <ScrollView contentInsetAdjustmentBehavior={"always"} style={{backgroundColor: "white"}}>
         <Text style={{fontFamily: 'cubano-regular', fontSize: 24}}>Home view</Text>
+        <Text style={{fontFamily: 'quicksand-light', fontSize: 18}}>Sub view</Text>
       </ScrollView>
     );
   }
