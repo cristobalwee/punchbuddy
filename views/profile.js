@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
-import Navigation from '../components/navigation.js';
 
 class ProfileView extends React.Component {
   constructor(props) {
@@ -28,9 +27,9 @@ class ProfileView extends React.Component {
     }
 
     return (
-      <View>
+      <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.profileview}>
         <Text style={{fontFamily: 'cubano-regular', fontSize: 24}}>Profile view</Text>
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -1,13 +1,14 @@
 import React from 'react';
-import { FlatList, Text, View, ScrollView, Image } from 'react-native';
+import { FlatList, Text, View, ScrollView, Image, SafeAreaView, TouchableHighlight } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
 import ListItem from '../components/listitem.js';
-import Navigation from '../components/navigation.js';
+import WorkoutDrawer from '../components/workoutdrawer.js';
 
 // https://stackoverflow.com/questions/39849648/horizontal-scrollview-snapping-react-native
+// React navigation has a bug that causes SafeAreaView to break https://github.com/infinitered/ignite/issues/1225#issuecomment-362800224
 
 class HomeView extends React.Component {
   constructor(props) {
@@ -33,20 +34,27 @@ class HomeView extends React.Component {
     }
 
     return (
-      <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.homeview}>
-        <View style={{flex: 1, flexDirection: 'row', marginBottom: 20}}>
-          <Text style={{fontFamily: 'cubano-regular', fontSize: 32}}>Home</Text>
-          <View style={styles.badge}>
-            <Image
-              source={require('../assets/profile_icon.png')}
-              style={{width: 32, height: 32}}
-            />
+      <View style={styles.container}>
+        <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.homeview}>
+          <View style={{flex: 1, flexDirection: 'row', marginBottom: 20}}>
+            <Text style={{fontFamily: 'cubano-regular', fontSize: 32}}>Home</Text>
+            <View style={styles.badge}>
+              <TouchableHighlight
+                onPress={() => this.props.navigation.navigate('Profile')}>
+                <Image
+                  source={require('../assets/profile_icon.png')}
+                  style={{width: 32, height: 32}}
+                />
+              </TouchableHighlight>
+            </View>
           </View>
-        </View>
-        <WorkoutCard type={'boxing'}/>
-        <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
-        <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} />
-      </ScrollView>
+          <WorkoutCard type={'boxing'}/>
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
+          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} />
+          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} />
+        </ScrollView>
+        <WorkoutDrawer />
+      </View>
     );
   }
 }

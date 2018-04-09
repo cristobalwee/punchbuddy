@@ -32,7 +32,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/boxing.png')}
-              style={{width: 303, height: 290, borderTopLeftRadius: 12, borderTopRightRadius: 12,}}
+              style={{width: 303, height: 290}}
             />
           );
           break;
@@ -137,7 +137,7 @@ class WorkoutCard extends React.Component {
           break;
       }
     }
-    
+
     return (
       <View style={styles.workoutcard}>
         <View style={{width: 303, height: 290}}>
