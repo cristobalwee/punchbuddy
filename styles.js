@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   workoutdrawer: {
-    height: 75,
     position: 'absolute',
     left: 10,
     right: 10,

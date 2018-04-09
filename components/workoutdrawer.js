@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated, ScrollView } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -9,6 +9,8 @@ class WorkoutDrawer extends React.Component {
     super(props);
     this.state = {
       fontLoaded: false,
+      drawerOpen: false,
+      animation: new Animated.Value()
     };
   }
 
@@ -21,31 +23,77 @@ class WorkoutDrawer extends React.Component {
     this.setState({ fontLoaded: true });
   }
 
+  animateTo() {
+
+  }
+
   render() {
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
 
+    // if (this.state.drawerOpen) {
+    //   drawerStyle = {
+    //     height: this.state.animation,
+    //     position: 'absolute',
+    //     left: 10,
+    //     right: 10,
+    //     top: 40,
+    //     padding: 20,
+    //     borderRadius: 12,
+    //     backgroundColor: '#262626'
+    //   }
+    // }
+
     return (
-      <View style={styles.workoutdrawer}>
+      <Animated.View style={[styles.workoutdrawer, {height: this.state.animation}]}>
         <View style={{flex: 1, position: 'absolute', top: 10, left: '50%', justifyContent: 'center'}}>
-          <Image
-            source={require('../assets/drawer_line.png')}
-            style={{width: 39, height: 3}}
-          />
+          <TouchableHighlight
+            style={{width: 39, height: 10}}
+            onPress={() => {
+              console.log("pressed");
+              let flag = this.state.drawerOpen
+              let initialValue = flag ? 200 : 75;
+              let finalValue = flag ? 75 : 200;
+
+              this.setState({
+                drawerOpen : !flag
+              });
+
+              this.state.animation.setValue(initialValue);
+              Animated.spring(
+                this.state.animation,
+                {
+                  toValue: finalValue
+                }
+              ).start();
+            }}>
+            <Image
+              source={require('../assets/drawer_line.png')}
+              style={{width: 39, height: 3}}
+            />
+          </TouchableHighlight>
         </View>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <View>
             <Text style={{fontFamily: 'cubano-regular', fontSize: 20, color: '#fff'}}>My Workouts</Text>
           </View>
           <View style={styles.badge}>
-          <Image
-            source={require('../assets/add_icon.png')}
-            style={{width: 23, height: 23}}
-          />
+            <Image
+              source={require('../assets/add_icon.png')}
+              style={{width: 23, height: 23}}
+            />
           </View>
         </View>
-      </View>
+        {
+          // <ScrollView>
+          //   <View style={{justifyContent: 'center', borderRadius: 8, backgroundColor: '#fff', flex: 1}}>
+          //     <Text style={{fontFamily: 'cubano-regular', fontSize: 20}}>Let's Get Sweaty</Text>
+          //     <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>Tap the add button to add a workout</Text>
+          //   </View>
+          // </ScrollView>
+        }
+      </Animated.View>
     );
   }
 }
