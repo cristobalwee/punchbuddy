@@ -1,5 +1,6 @@
 import React from 'react';
-import { FlatList, Text, View, ScrollView, Image, SafeAreaView, TouchableHighlight } from 'react-native';
+import { FlatList, Text, View, ScrollView, Image, SafeAreaView, TouchableHighlight, Platform, Dimensions } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -9,12 +10,31 @@ import WorkoutDrawer from '../components/workoutdrawer.js';
 
 // https://stackoverflow.com/questions/39849648/horizontal-scrollview-snapping-react-native
 // React navigation has a bug that causes SafeAreaView to break https://github.com/infinitered/ignite/issues/1225#issuecomment-362800224
+// https://github.com/archriss/react-native-snap-carousel
+
+const IS_ANDROID = Platform.OS === 'android';
+const SLIDER_1_FIRST_ITEM = 0;
+const types = ['boxing', 'running', 'cycling', 'tabata', 'sparring', 'weights'];
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+
+function wp (percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+}
+
+const slideHeight = viewportHeight * 0.4;
+const slideWidth = wp(100);
+const itemHorizontalMargin = wp(2);
+
+const sliderWidth = viewportWidth - 50;
+const itemWidth = viewportWidth - 50;
 
 class HomeView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fontLoaded: false,
+      slider1ActiveSlide: SLIDER_1_FIRST_ITEM
     };
   }
 
@@ -28,7 +48,12 @@ class HomeView extends React.Component {
   }
 
   render() {
+    renderItem = ({item, index}) => {
+      return <WorkoutCard type={item} navigation={this.props.navigation} />
+    }
+
     const sports = ['boxing', 'running', 'cycling', 'tabata', 'sparring', 'weights'];
+    const { slider1ActiveSlide } = this.state;
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
@@ -48,10 +73,22 @@ class HomeView extends React.Component {
               </TouchableHighlight>
             </View>
           </View>
-          <WorkoutCard type={'boxing'}/>
+          <View style={{width: slideWidth}}>
+            <Carousel
+              ref={c => this._slider1Ref = c}
+              data={types}
+              renderItem={renderItem}
+              sliderWidth={sliderWidth}
+              itemWidth={itemWidth}
+              hasParallaxImages={true}
+              containerCustomStyle={{paddingBottom: 10}}
+              firstItem={SLIDER_1_FIRST_ITEM}
+              onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
+              />
+          </View>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
-          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} />
-          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} />
+          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} />
+          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} />
         </ScrollView>
         <WorkoutDrawer />
       </View>

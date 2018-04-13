@@ -6,6 +6,7 @@ import axios from 'axios';
 import styles from './styles.js';
 import HomeView from './views/homeview.js';
 import ProfileView from './views/profile.js';
+import TimerView from './views/timerview.js';
 
 // https://github.com/corbt/react-native-keep-awake
 // https://github.com/skevy/react-native-gsap-demo
@@ -27,6 +28,9 @@ const RootStack = StackNavigator(
     Profile: {
       screen: ProfileView,
     },
+    Timer: {
+      screen: TimerView
+    }
   },
   {
     headerMode: 'none',

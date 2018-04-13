@@ -4,13 +4,17 @@ import { Font } from 'expo';
 
 import styles from '../styles.js';
 
+// https://goshakkk.name/react-native-animated-appearance-disappearance/
+
 class WorkoutDrawer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fontLoaded: false,
       drawerOpen: false,
-      animation: new Animated.Value()
+      animation: new Animated.Value(),
+      fade: new Animated.Value(0),
+      cardHeight: new Animated.Value()
     };
   }
 
@@ -32,29 +36,18 @@ class WorkoutDrawer extends React.Component {
       return <Text>Loading</Text>
     }
 
-    // if (this.state.drawerOpen) {
-    //   drawerStyle = {
-    //     height: this.state.animation,
-    //     position: 'absolute',
-    //     left: 10,
-    //     right: 10,
-    //     top: 40,
-    //     padding: 20,
-    //     borderRadius: 12,
-    //     backgroundColor: '#262626'
-    //   }
-    // }
-
     return (
       <Animated.View style={[styles.workoutdrawer, {height: this.state.animation}]}>
         <View style={{flex: 1, position: 'absolute', top: 10, left: '50%', justifyContent: 'center'}}>
           <TouchableHighlight
             style={{width: 39, height: 10}}
             onPress={() => {
-              console.log("pressed");
               let flag = this.state.drawerOpen
               let initialValue = flag ? 200 : 75;
               let finalValue = flag ? 75 : 200;
+              let cardInitialValue = flag ? 0 : 75;
+              let cardFinalValue = flag ? 75 : 0;
+              let fadeIn = flag ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 1)';
 
               this.setState({
                 drawerOpen : !flag
@@ -86,12 +79,14 @@ class WorkoutDrawer extends React.Component {
           </View>
         </View>
         {
-          // <ScrollView>
-          //   <View style={{justifyContent: 'center', borderRadius: 8, backgroundColor: '#fff', flex: 1}}>
-          //     <Text style={{fontFamily: 'cubano-regular', fontSize: 20}}>Let's Get Sweaty</Text>
-          //     <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>Tap the add button to add a workout</Text>
-          //   </View>
-          // </ScrollView>
+          // <Animated.View style={{height: this.state.cardHeight}}>
+          //   <ScrollView style={{position: 'relative', left: 0, top: 0}}>
+          //     <View style={{justifyContent: 'center', borderRadius: 8, flex: 1, backgroundColor: '#fff', padding: 10}}>
+          //       <Text style={{fontFamily: 'cubano-regular', fontSize: 20}}>Let's Get Sweaty</Text>
+          //       <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>Tap the add button to add a workout</Text>
+          //     </View>
+          //   </ScrollView>
+          // </Animated.View>
         }
       </Animated.View>
     );

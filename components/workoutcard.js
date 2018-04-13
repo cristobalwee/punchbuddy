@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -32,7 +32,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/boxing.png')}
-              style={{width: 303, height: 290}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -40,7 +40,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/running.png')}
-              style={{width: 303, height: 290,}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -48,7 +48,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/cycling.png')}
-              style={{width: 303, height: 290,}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -56,7 +56,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/tabata.png')}
-              style={{width: 303, height: 290,}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -64,7 +64,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/sparring.png')}
-              style={{width: 303, height: 290,}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -72,7 +72,7 @@ class WorkoutCard extends React.Component {
           return (
             <Image
               source={require('../assets/weights.png')}
-              style={{width: 303, height: 290,}}
+              style={styles.cardimage}
             />
           );
           break;
@@ -140,18 +140,23 @@ class WorkoutCard extends React.Component {
 
     return (
       <View style={styles.workoutcard}>
-        <View style={{width: 303, height: 290}}>
-          {renderImage()}
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', paddingTop: 20, paddingBottom: 20, paddingLeft: 15, paddingRight: 15}}>
+        <TouchableHighlight
+          onPress={() => this.props.navigation.navigate('Timer')}>
           <View>
-            <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Boxing</Text>
-            <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>10 Workouts</Text>
+            <View style={styles.imagecontainer}>
+              {renderImage()}
+            </View>
+            <View style={{flex: 1, flexDirection: 'row', paddingTop: 20, paddingBottom: 20, paddingLeft: 15, paddingRight: 15}}>
+              <View>
+                <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>{this.props.type}</Text>
+                <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>10 Workouts</Text>
+              </View>
+              <View style={styles.badge}>
+                {renderIcon()}
+              </View>
+            </View>
           </View>
-          <View style={styles.badge}>
-            {renderIcon()}
-          </View>
-        </View>
+        </TouchableHighlight>
       </View>
     );
   }

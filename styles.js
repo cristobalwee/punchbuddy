@@ -1,5 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+
+function wp (percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+}
+
+const slideHeight = viewportHeight * 0.4;
+const slideWidth = wp(100);
+const itemHorizontalMargin = wp(2);
+
+const sliderWidth = viewportWidth - 50;
+const itemWidth = viewportWidth - 50;
 
 const styles = StyleSheet.create({
   container: {
@@ -36,6 +50,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 3,
     borderRadius: 12
+  },
+  cardimage: {
+    width: 303,
+    height: 290,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12
   },
   listitem: {
     shadowOffset: {width: 0, height: 3},
