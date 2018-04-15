@@ -71,8 +71,35 @@ const styles = StyleSheet.create({
     right: 10,
     bottom: 0,
     padding: 20,
-    borderRadius: 12,
-    backgroundColor: '#262626'
+    borderRadius: 16,
+    backgroundColor: '#262626',
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#a1a1a1',
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+  },
+  timercounter: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: 75,
+    paddingBottom: 75
+  },
+  intervalbar: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderRadius: 16,
+    position: 'relative',
+    bottom: 0,
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: '#262626',
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#a1a1a1',
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
   }
 });
 
