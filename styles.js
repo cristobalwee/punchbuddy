@@ -8,7 +8,7 @@ function wp (percentage) {
     return Math.round(value);
 }
 
-const slideHeight = viewportHeight * 0.4;
+const slideHeight = viewportHeight * 0.36;
 const slideWidth = wp(100);
 const itemHorizontalMargin = wp(2);
 
@@ -51,11 +51,16 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     borderRadius: 12
   },
-  cardimage: {
-    width: 303,
-    height: 290,
+  imagecontainer: {
+    flex: 1,
+    backgroundColor: 'white',
     borderTopLeftRadius: 12,
-    borderTopRightRadius: 12
+    borderTopRightRadius: 12,
+    overflow: 'hidden'
+  },
+  cardimage: {
+    width: itemWidth,
+    height: slideHeight
   },
   listitem: {
     shadowOffset: {width: 0, height: 3},
@@ -89,17 +94,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 16,
-    position: 'relative',
-    bottom: 0,
+    position: 'absolute',
+    bottom: 30,
+    left: 0,
     paddingTop: 30,
     paddingBottom: 30,
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#262626',
     shadowOffset: {width: 0, height: 5},
-    shadowColor: '#a1a1a1',
+    shadowColor: '#000',
     shadowOpacity: 0.5,
-    shadowRadius: 3,
+    shadowRadius: 5,
+    borderRadius: 12,
+    marginLeft: 10,
+    marginRight: 10
   }
 });
 

@@ -69,80 +69,87 @@ class TimerView extends React.Component {
     }
 
     return (
-      <ScrollView contentInsetAdjustmentBehavior={"always"} style={[styles.profileview, {position: 'relative'}]}>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-          <TouchableHighlight
-            onPress={() => this.props.navigation.goBack(null)}>
-            <Image
-              source={require('../assets/back_icon.png')}
-              style={{width: 9, height: 15}}
-            />
-          </TouchableHighlight>
-          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Timer view</Text>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}>Edit</Text>
-        </View>
-        <View style={styles.timercounter}>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 108, textAlign: 'center'}}>01:00</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-          <TouchableHighlight
-            onPress={() => {
-              if (this.state.locked) {
-                return;
-              }
-              this.props.navigation.goBack(null);
-            }}>
-            <Image
-              source={require('../assets/back_icon.png')}
-              style={{width: 9, height: 15, marginTop: 6}}
-            />
-          </TouchableHighlight>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 24}}>Sprint</Text>
-          <TouchableHighlight
-            onPress={() => {
-              if (this.state.locked) {
-                return;
-              }
-              this.props.navigation.goBack(null);
-            }}>
-            <Image
-              source={require('../assets/arrow_icon.png')}
-              style={{width: 9, height: 15, marginTop: 6}}
-            />
-          </TouchableHighlight>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>00:00:00</Text>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>-01:03:20</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10, paddingTop: 75}}>
-          <TouchableHighlight
-            onPress={() => {
-              let flag = this.state.locked;
-              this.setState({ locked: !flag });
-            }}>
-            {renderLock()}
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => {
-              if (this.state.locked) {
-                return;
-              }
-              let flag = this.state.playing;
-              this.setState({ playing: !flag });
-            }}>
-            {renderButton()}
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => console.log("Stop")}>
-            <Image
-              source={require('../assets/stop_button.png')}
-              style={{width: 34, height: 34, marginTop: 14}}
-            />
-          </TouchableHighlight>
-        </View>
+      <View style={styles.container}>
+        <ScrollView scrollEnabled={false} contentInsetAdjustmentBehavior={"always"} style={[styles.profileview, {position: 'relative', paddingLeft: 0, paddingRight: 0}]}>
+          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25}}>
+            <TouchableHighlight
+              onPress={() => this.props.navigation.goBack(null)}>
+              <Image
+                source={require('../assets/back_icon.png')}
+                style={{width: 9, height: 15}}
+              />
+            </TouchableHighlight>
+            <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Timer view</Text>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}>Edit</Text>
+          </View>
+          <View style={styles.timercounter}>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 108, textAlign: 'center'}}>01:00</Text>
+          </View>
+          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25}}>
+            <TouchableHighlight
+              onPress={() => {
+                if (this.state.locked) {
+                  return;
+                }
+                this.props.navigation.goBack(null);
+              }}>
+              <Image
+                source={require('../assets/back_icon.png')}
+                style={{width: 9, height: 15, marginTop: 6}}
+              />
+            </TouchableHighlight>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 24}}>Sprint</Text>
+            <TouchableHighlight
+              onPress={() => {
+                if (this.state.locked) {
+                  return;
+                }
+                this.props.navigation.goBack(null);
+              }}>
+              <Image
+                source={require('../assets/arrow_icon.png')}
+                style={{width: 9, height: 15, marginTop: 6}}
+              />
+            </TouchableHighlight>
+          </View>
+          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25}}>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>00:00:00</Text>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>-01:03:20</Text>
+          </View>
+          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 35, paddingRight: 35, paddingTop: 100}}>
+            <TouchableHighlight
+              onPress={() => {
+                let flag = this.state.locked;
+                this.setState({ locked: !flag });
+              }}>
+              {renderLock()}
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                if (this.state.locked) {
+                  return;
+                }
+                let flag = this.state.playing;
+                this.setState({ playing: !flag });
+              }}>
+              {renderButton()}
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                if (this.state.locked) {
+                  return;
+                }
+                console.log("Stop")
+              }}>
+              <Image
+                source={require('../assets/stop_button.png')}
+                style={{width: 34, height: 34, marginTop: 14}}
+              />
+            </TouchableHighlight>
+          </View>
+        </ScrollView>
         <IntervalBar />
-      </ScrollView>
+      </View>
     );
   }
 }

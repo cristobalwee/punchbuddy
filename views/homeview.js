@@ -22,11 +22,11 @@ function wp (percentage) {
     return Math.round(value);
 }
 
-const slideHeight = viewportHeight * 0.4;
+const slideHeight = viewportHeight * 0.36;
 const slideWidth = wp(100);
 const itemHorizontalMargin = wp(2);
 
-const sliderWidth = viewportWidth - 50;
+const sliderWidth = viewportWidth;
 const itemWidth = viewportWidth - 50;
 
 class HomeView extends React.Component {
@@ -52,7 +52,6 @@ class HomeView extends React.Component {
       return <WorkoutCard type={item} navigation={this.props.navigation} />
     }
 
-    const sports = ['boxing', 'running', 'cycling', 'tabata', 'sparring', 'weights'];
     const { slider1ActiveSlide } = this.state;
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
@@ -73,7 +72,7 @@ class HomeView extends React.Component {
               </TouchableHighlight>
             </View>
           </View>
-          <View style={{width: slideWidth}}>
+          <View style={{width: slideWidth, marginLeft: -25}}>
             <Carousel
               ref={c => this._slider1Ref = c}
               data={types}
