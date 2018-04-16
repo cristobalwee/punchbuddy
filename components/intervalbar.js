@@ -31,7 +31,12 @@ class IntervalBar extends React.Component {
     return (
       <View style={styles.intervalbar}>
         <TouchableHighlight
-          onPress={() => Alert.alert("Interval info", info)}>
+          onPress={() => {
+            if (this.props.locked) {
+              return;
+            }
+            Alert.alert("Interval info", info)
+          }}>
           <View style={{backgroundColor: '#fff', borderRadius: 24, padding: 5, paddingLeft: 20, paddingRight: 20, marginTop: 5, marginBottom: 5}}>
             <Text style={{fontFamily: 'cubano-regular', fontSize: 16, color: '#262626'}}>Info</Text>
           </View>

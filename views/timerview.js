@@ -199,7 +199,7 @@ class TimerView extends React.Component {
         return (
           <Image
             source={require('../assets/unlock_button.png')}
-            style={{width: 23, height: 36, marginTop: 12}}
+            style={{width: 24, height: 36, marginTop: 12}}
           />
         );
       }
@@ -207,7 +207,7 @@ class TimerView extends React.Component {
       return (
         <Image
           source={require('../assets/lock_button.png')}
-          style={{width: 23, height: 36, marginTop: 12}}
+          style={{width: 24, height: 36, marginTop: 12}}
         />
       );
     }
@@ -225,7 +225,7 @@ class TimerView extends React.Component {
       return (
         <Image
           source={require('../assets/play_button.png')}
-          style={{width: 64, height: 80, marginLeft: 12}}
+          style={{width: 66, height: 80, marginLeft: 12}}
         />
       );
     }
@@ -245,11 +245,11 @@ class TimerView extends React.Component {
         }
 
         const difference = (time/60) - Math.floor(time/60);
-        const diffMin = Math.floor(difference * 60);
+        const diffMin = Math.round(difference * 60);
         if (time/60 < 10) {
-          return ("0" + Math.floor(time/60) + ":" + diffMin);
+          return ("0" + Math.round(time/60) + ":" + diffMin);
         }
-        return (Math.floor(time/60) + ":" + diffMin);
+        return (Math.round(time/60) + ":" + diffMin);
       }
     }
 
@@ -344,7 +344,7 @@ class TimerView extends React.Component {
             </TouchableHighlight>
           </View>
         </ScrollView>
-        <IntervalBar index={this.state.currentInterval} total={24} next={workout.intervals[this.state.currentInterval + 1].name} info={workout.intervals[0].description} />
+        <IntervalBar locked={this.state.locked} index={this.state.currentInterval} total={24} next={workout.intervals[this.state.currentInterval + 1].name} info={workout.intervals[0].description} />
       </View>
     );
   }
