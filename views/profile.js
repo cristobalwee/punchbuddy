@@ -4,6 +4,7 @@ import { Font } from 'expo';
 
 import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
+import MenuItem from '../components/menuitem.js';
 
 class ProfileView extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class ProfileView extends React.Component {
 
     return (
       <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.profileview}>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25}}>
           <TouchableHighlight
             onPress={() => this.props.navigation.goBack(null)}>
             <Image
@@ -39,6 +40,9 @@ class ProfileView extends React.Component {
           <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Profile</Text>
           <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
+        <MenuItem title={"Name"} subtitle={"Punchy McPunch"} />
+        <MenuItem title={"Workout time"} subtitle={"00:12:34:20"} />
+        <MenuItem title={"Email"} subtitle={""} />
       </ScrollView>
     );
   }

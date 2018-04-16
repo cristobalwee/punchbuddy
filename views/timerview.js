@@ -344,7 +344,7 @@ class TimerView extends React.Component {
             </TouchableHighlight>
           </View>
         </ScrollView>
-        <IntervalBar index={this.state.currentInterval} total={24} next={workout.intervals[this.state.currentInterval + 1].name} info={workout.intervals[this.state.currentInterval].description} />
+        <IntervalBar index={this.state.currentInterval} total={24} next={workout.intervals[this.state.currentInterval + 1].name} info={workout.intervals[0].description} />
       </View>
     );
   }
