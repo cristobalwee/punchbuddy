@@ -1,0 +1,127 @@
+{
+  "name": "Running - Intermediate",
+  "total_length": 1440,
+  "total_intervals": 24,
+  "intervals" : [
+    {
+      "name": "Warmup",
+      "description": "Warmup: take a few seconds to get focused and ready.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    },
+    {
+      "name": "Rest",
+      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+      "length": 30
+    },
+    {
+      "name": "Sprint",
+      "description": "Sprint: run as fast as possible for the alotted time.",
+      "length": 30
+    }
+  ]
+}

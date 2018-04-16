@@ -36,11 +36,11 @@ class IntervalBar extends React.Component {
         </TouchableHighlight>
         <View style={{flex: 1, flexDirection: 'column', marginLeft: 40}}>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 16, color: 'white', textAlign: 'center'}}>Interval</Text>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 16, color: 'white', textAlign: 'center'}}>1/24</Text>
+          <Text style={{fontFamily: 'quicksand-light', fontSize: 16, color: 'white', textAlign: 'center'}}>{this.props.index + 1}/{this.props.total}</Text>
         </View>
         <View style={{flex: 1, flexDirection: 'column', marginLeft: 40}}>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 16, color: 'white', textAlign: 'center'}}>Up next</Text>
-          <Text style={{fontFamily: 'quicksand-light', fontSize: 16, color: 'white', textAlign: 'center'}}>Rest</Text>
+          <Text style={{fontFamily: 'quicksand-light', fontSize: 16, color: 'white', textAlign: 'center'}}>{this.props.next}</Text>
         </View>
       </View>
     );

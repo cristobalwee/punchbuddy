@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: '#262626',
     shadowOffset: {width: 0, height: 0},
-    shadowColor: '#a1a1a1',
+    shadowColor: '#000',
     shadowOpacity: 0.5,
-    shadowRadius: 3,
+    shadowRadius: 5,
   },
   timercounter: {
     flex: 1,

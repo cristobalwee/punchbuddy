@@ -28,7 +28,7 @@ class ProfileView extends React.Component {
 
     return (
       <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.profileview}>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableHighlight
             onPress={() => this.props.navigation.goBack(null)}>
             <Image
@@ -36,8 +36,9 @@ class ProfileView extends React.Component {
               style={{width: 9, height: 15}}
             />
           </TouchableHighlight>
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Profile</Text>
+          <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
-        <Text style={{fontFamily: 'cubano-regular', fontSize: 24}}>Profile view</Text>
       </ScrollView>
     );
   }
