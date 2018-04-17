@@ -258,6 +258,7 @@ class TimerView extends React.Component {
         <ScrollView scrollEnabled={false} contentInsetAdjustmentBehavior={"always"} style={[styles.profileview, {position: 'relative', paddingLeft: 0, paddingRight: 0}]}>
           <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25}}>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 if (this.state.locked) {
                   return;
@@ -277,6 +278,7 @@ class TimerView extends React.Component {
           </View>
           <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25}}>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 if (this.state.locked) {
                   return;
@@ -290,6 +292,7 @@ class TimerView extends React.Component {
             </TouchableHighlight>
             <Text style={{fontFamily: 'quicksand-light', fontSize: 24}}>{workout.intervals[this.state.currentInterval].name}</Text>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 if (this.state.locked) {
                   return;
@@ -308,6 +311,7 @@ class TimerView extends React.Component {
           </View>
           <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 35, paddingRight: 35, paddingTop: 100}}>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 let flag = this.state.locked;
                 this.setState({ locked: !flag });
@@ -315,6 +319,7 @@ class TimerView extends React.Component {
               {renderLock()}
             </TouchableHighlight>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 if (this.state.locked) {
                   return;
@@ -328,6 +333,7 @@ class TimerView extends React.Component {
               {renderButton()}
             </TouchableHighlight>
             <TouchableHighlight
+              underlayColor={'#fff'}
               onPress={() => {
                 if (this.state.locked) {
                   return;

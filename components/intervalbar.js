@@ -31,6 +31,7 @@ class IntervalBar extends React.Component {
     return (
       <View style={styles.intervalbar}>
         <TouchableHighlight
+          underlayColor={'#262626'}
           onPress={() => {
             if (this.props.locked) {
               return;

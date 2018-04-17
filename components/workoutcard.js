@@ -141,6 +141,7 @@ class WorkoutCard extends React.Component {
     return (
       <View style={styles.workoutcard}>
         <TouchableHighlight
+          underlayColor={'#fff'}
           onPress={() => this.props.navigation.navigate('Timer')}>
           <View>
             <View style={styles.imagecontainer}>

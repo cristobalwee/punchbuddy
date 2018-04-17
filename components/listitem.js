@@ -29,6 +29,7 @@ class ListItem extends React.Component {
     return (
       <View style={styles.listitem}>
         <TouchableHighlight
+          underlayColor={'#fff'}
           onPress={() => this.props.navigation.navigate('Timer')}>
           <View style={{flex: 1, flexDirection: 'row', padding: 15}}>
             <View>

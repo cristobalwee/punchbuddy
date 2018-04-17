@@ -31,6 +31,7 @@ class ProfileView extends React.Component {
       <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.profileview}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25}}>
           <TouchableHighlight
+            underlayColor={'#fff'}
             onPress={() => this.props.navigation.goBack(null)}>
             <Image
               source={require('../assets/back_icon.png')}

@@ -64,6 +64,7 @@ class HomeView extends React.Component {
             <Text style={{fontFamily: 'cubano-regular', fontSize: 32}}>Home</Text>
             <View style={styles.badge}>
               <TouchableHighlight
+                underlayColor={'#fff'}
                 onPress={() => this.props.navigation.navigate('Profile')}>
                 <Image
                   source={require('../assets/profile_icon.png')}

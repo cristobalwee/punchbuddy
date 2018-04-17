@@ -40,6 +40,7 @@ class WorkoutDrawer extends React.Component {
       <Animated.View style={[styles.workoutdrawer, {height: this.state.animation}]}>
         <View style={{flex: 1, position: 'absolute', top: 10, left: '50%', justifyContent: 'center'}}>
           <TouchableHighlight
+            underlayColor={'#262626'}
             style={{width: 39, height: 10}}
             onPress={() => {
               let flag = this.state.drawerOpen
