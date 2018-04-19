@@ -14,7 +14,7 @@ import WorkoutDrawer from '../components/workoutdrawer.js';
 
 const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 0;
-const types = ['boxing', 'running', 'cycling', 'tabata', 'sparring', 'weights'];
+const types = ['boxing', 'running', 'cycling', 'bodyweight', 'sparring', 'weights'];
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 function wp (percentage) {
@@ -89,6 +89,7 @@ class HomeView extends React.Component {
           <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
           <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} />
           <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} />
+          <ListItem title={'Tabata - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} />
         </ScrollView>
         <WorkoutDrawer />
       </View>

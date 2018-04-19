@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     paddingRight: 25,
     paddingTop: 8,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    paddingBottom: 200
   },
   profileview: {
     flex: 1,
@@ -72,8 +73,8 @@ const styles = StyleSheet.create({
   },
   workoutdrawer: {
     position: 'absolute',
-    left: 10,
-    right: 10,
+    left: 5,
+    right: 5,
     bottom: 0,
     padding: 20,
     borderRadius: 16,

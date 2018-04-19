@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight, Animated, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated, ScrollView, Platform, Dimensions, Easing } from 'react-native';
 import { Font } from 'expo';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import styles from '../styles.js';
 
 // https://goshakkk.name/react-native-animated-appearance-disappearance/
+
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 class WorkoutDrawer extends React.Component {
   constructor(props) {
@@ -44,8 +47,8 @@ class WorkoutDrawer extends React.Component {
             style={{width: 39, height: 10}}
             onPress={() => {
               let flag = this.state.drawerOpen
-              let initialValue = flag ? 200 : 75;
-              let finalValue = flag ? 75 : 200;
+              let initialValue = flag ? viewportHeight - 50 : 75;
+              let finalValue = flag ? 75 : viewportHeight - 50;
               let cardInitialValue = flag ? 0 : 75;
               let cardFinalValue = flag ? 75 : 0;
               let fadeIn = flag ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 1)';
@@ -55,10 +58,12 @@ class WorkoutDrawer extends React.Component {
               });
 
               this.state.animation.setValue(initialValue);
-              Animated.spring(
+              Animated.timing(
                 this.state.animation,
                 {
-                  toValue: finalValue
+                  toValue: finalValue,
+                  duration: 350,
+                  easing: Easing.ease
                 }
               ).start();
             }}>

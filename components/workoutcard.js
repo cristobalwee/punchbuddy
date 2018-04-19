@@ -52,10 +52,10 @@ class WorkoutCard extends React.Component {
             />
           );
           break;
-        case 'tabata':
+        case 'bodyweight':
           return (
             <Image
-              source={require('../assets/tabata.png')}
+              source={require('../assets/bodyweight.png')}
               style={styles.cardimage}
             />
           );
@@ -108,10 +108,10 @@ class WorkoutCard extends React.Component {
             />
           );
           break;
-        case 'tabata':
+        case 'bodyweight':
           return (
             <Image
-              source={require('../assets/tabata_icon.png')}
+              source={require('../assets/bodyweight_icon.png')}
               style={{width: 18, height: 28, marginTop: 10, marginRight: 10}}
             />
           );
@@ -142,7 +142,7 @@ class WorkoutCard extends React.Component {
       <View style={styles.workoutcard}>
         <TouchableHighlight
           underlayColor={'#fff'}
-          onPress={() => this.props.navigation.navigate('Timer')}>
+          onPress={() => this.props.navigation.navigate('Focus', {type: this.props.type})}>
           <View>
             <View style={styles.imagecontainer}>
               {renderImage()}

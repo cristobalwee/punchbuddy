@@ -1,127 +1,216 @@
-{
-  "name": "Running - Intermediate",
-  "total_length": 1440,
-  "total_intervals": 24,
-  "intervals" : [
-    {
-      "name": "Warmup",
-      "description": "Warmup: take a few seconds to get focused and ready.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    }
-  ]
-}
+[
+  {
+    "name": "Boxing - Beginner",
+    "total_length": 1450,
+    "total_intervals": 81,
+    "intervals": [
+      {
+        "name": "Warmup",
+        "description": "Warmup: take a few seconds to get focused and ready.",
+        "length": 10
+      },
+      {
+        "name": "Jabs",
+        "description": "Jabs: While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
+        "length": 20
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Crosses",
+        "description": "Crosses: While in a boxing stance, continuosly shoot crosses with your dominant hand.",
+        "length": 20
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Hook and Weave",
+        "description": "Jabs: While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
+        "length": 20
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+    ]
+  },
+  {
+    "name": "bodyweight - Beginner",
+    "total_length": 640,
+    "total_intervals": 33,
+    "intervals": [
+      {
+        "name": "Warmup",
+        "description": "Warmup: take a few seconds to get focused and ready.",
+        "length": 10
+      },
+      {
+        "name": "Squats",
+        "description": "Perform as many bodyweight squats as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Pushups",
+        "description": "Perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Lunges",
+        "description": "Perform as many bodyweight lunges (on both legs) as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Ab Crunches",
+        "description": "Perform as many crunches as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Side-to-side hops",
+        "description": "Hop from side to side with both legs",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Close grip pushups",
+        "description": "With your hands in the shape of a diamond (or just very close together), perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Jumping jacks",
+        "description": "Peform as many jumping jacks as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Burpees",
+        "description": "Perform as many burpees as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Squats",
+        "description": "Perform as many bodyweight squats as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Pushups",
+        "description": "Perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Lunges",
+        "description": "Perform as many bodyweight lunges (on both legs) as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Ab Crunches",
+        "description": "Perform as many crunches as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Side-to-side hops",
+        "description": "Hop from side to side with both legs",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Close grip pushups",
+        "description": "With your hands in the shape of a diamond (or just very close together), perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Jumping jacks",
+        "description": "Peform as many jumping jacks as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Burpees",
+        "description": "Perform as many burpees as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+    ]
+  }
+]
