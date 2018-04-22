@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+    backgroundColor: '#fff'
   },
   homeview: {
     flex: 1,
@@ -64,10 +65,16 @@ const styles = StyleSheet.create({
     height: slideHeight
   },
   listitem: {
+    backgroundColor: '#fff',
     shadowOffset: {width: 0, height: 3},
     shadowColor: '#a1a1a1',
     shadowOpacity: 0.5,
     shadowRadius: 3,
+    borderRadius: 12,
+    marginBottom: 15,
+  },
+  listitemnoshadow: {
+    backgroundColor: '#fff',
     borderRadius: 12,
     marginBottom: 15,
   },
@@ -82,7 +89,27 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 0},
     shadowColor: '#000',
     shadowOpacity: 0.5,
+    shadowRadius: 5
+  },
+  drawercontents: {
+    position: 'absolute',
+    top: 65,
+    width: itemWidth,
+    marginLeft: 20
+  },
+  addworkoutbutton: {
+    backgroundColor: '#262626',
+    left: 25,
+    bottom: 25,
+    padding: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    borderRadius: 8,
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
     shadowRadius: 5,
+    width: itemWidth
   },
   timercounter: {
     flex: 1,

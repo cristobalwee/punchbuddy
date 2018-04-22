@@ -4,6 +4,7 @@ import { Font } from 'expo';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import styles from '../styles.js';
+import ListItem from '../components/listitem.js';
 
 // https://goshakkk.name/react-native-animated-appearance-disappearance/
 
@@ -35,6 +36,19 @@ class WorkoutDrawer extends React.Component {
   }
 
   render() {
+    renderList = () => {
+      if (this.state.drawerOpen) {
+        return (
+          <View style={styles.drawercontents}>
+            <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} noshadow nextView={'Detail'} />
+            <ListItem title={'Sparring - 3 minute rounds'} subtitle={'11:00'} navigation={this.props.navigation} noshadow nextView={'Detail'} />
+          </View>
+        );
+      }
+
+      return null;
+    }
+
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
@@ -58,12 +72,12 @@ class WorkoutDrawer extends React.Component {
               });
 
               this.state.animation.setValue(initialValue);
-              Animated.timing(
+              Animated.spring(
                 this.state.animation,
                 {
                   toValue: finalValue,
-                  duration: 350,
-                  easing: Easing.ease
+                  duration: 400,
+                  bounciness: 2
                 }
               ).start();
             }}>
@@ -78,12 +92,17 @@ class WorkoutDrawer extends React.Component {
             <Text style={{fontFamily: 'cubano-regular', fontSize: 20, color: '#fff'}}>My Workouts</Text>
           </View>
           <View style={styles.badge}>
-            <Image
-              source={require('../assets/add_icon.png')}
-              style={{width: 23, height: 23}}
-            />
+            <TouchableHighlight
+              underlayColor={'#262626'}
+              onPress={() => this.props.navigation.navigate('AddWorkout')}>
+              <Image
+                source={require('../assets/add_icon.png')}
+                style={{width: 23, height: 23}}
+              />
+            </TouchableHighlight>
           </View>
         </View>
+        {renderList()}
         {
           // <Animated.View style={{height: this.state.cardHeight}}>
           //   <ScrollView style={{position: 'relative', left: 0, top: 0}}>

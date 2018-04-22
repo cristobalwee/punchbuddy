@@ -132,8 +132,7 @@ const workout = {
       "length": 30
     }
   ]
-}
-
+};
 
 class TimerView extends React.Component {
   constructor(props) {

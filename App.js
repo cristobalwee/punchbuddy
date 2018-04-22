@@ -8,6 +8,8 @@ import HomeView from './views/homeview.js';
 import ProfileView from './views/profile.js';
 import TimerView from './views/timerview.js';
 import WorkoutFocusView from './views/workoutfocus.js';
+import AddView from './views/addview.js';
+import WorkoutDetailView from './views/workoutdetail.js';
 
 // https://github.com/corbt/react-native-keep-awake
 // https://github.com/skevy/react-native-gsap-demo
@@ -34,6 +36,12 @@ const RootStack = StackNavigator(
     },
     Focus: {
       screen: WorkoutFocusView
+    },
+    AddWorkout: {
+      screen: AddView
+    },
+    Detail: {
+      screen: WorkoutDetailView
     }
   },
   {

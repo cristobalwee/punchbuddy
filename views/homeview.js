@@ -87,11 +87,11 @@ class HomeView extends React.Component {
               />
           </View>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
-          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} />
-          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} />
-          <ListItem title={'Tabata - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} />
+          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} nextView={'Detail'} />
+          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} nextView={'Detail'} />
+          <ListItem title={'Tabata - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} nextView={'Detail'} />
         </ScrollView>
-        <WorkoutDrawer />
+        <WorkoutDrawer navigation={this.props.navigation} />
       </View>
     );
   }
