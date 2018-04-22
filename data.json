@@ -4,8 +4,8 @@
     "workouts": [
       {
         "name": "Running - Beginner",
-        "total_length": 610,
-        "total_intervals": 20,
+        "total_length": 460,
+        "total_intervals": 16,
         "intervals": [
           {
             "name": "Warmup",
@@ -31,7 +31,8 @@
             "name": "Walk/Rest",
             "description": "Walk at a brisk pace and use this time to rest.",
             "length": 30
-          },{
+          },
+          {
             "name": "Sprint",
             "description": "Run as fast as possible for 30 seconds.",
             "length": 30
@@ -40,7 +41,8 @@
             "name": "Walk/Rest",
             "description": "Walk at a brisk pace and use this time to rest.",
             "length": 30
-          },{
+          },
+          {
             "name": "Sprint",
             "description": "Run as fast as possible for 30 seconds.",
             "length": 30
@@ -49,11 +51,129 @@
             "name": "Walk/Rest",
             "description": "Walk at a brisk pace and use this time to rest.",
             "length": 30
-          },{
+          },
+          {
             "name": "Sprint",
             "description": "Run as fast as possible for 30 seconds.",
             "length": 30
-          }
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 30
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 30
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 30
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 30
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 30
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 30
+          },
+        ]
+      },
+      {
+        "name": "Running - Intermediate",
+        "total_length": 470,
+        "total_intervals": 16,
+        "intervals": [
+          {
+            "name": "Warmup",
+            "description": "Warmup: take a few seconds to get focused and ready.",
+            "length": 10
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
+          {
+            "name": "Walk/Rest",
+            "description": "Walk at a brisk pace and use this time to rest.",
+            "length": 20
+          },
+          {
+            "name": "Sprint",
+            "description": "Run as fast as possible for 30 seconds.",
+            "length": 40
+          },
         ]
       },
       {
@@ -103,12 +223,6 @@
           }
         ]
       }
-    ]
-  },
-  {
-    "type": "Cycling",
-    "workouts": [
-
     ]
   },
   {
@@ -392,6 +506,18 @@
           },
         ]
       },
+    ]
+  },
+  {
+    "type": "Cycling",
+    "workouts": [
+
+    ]
+  },
+  {
+    "type": "Weights",
+    "workouts": [
+
     ]
   }
 ]
