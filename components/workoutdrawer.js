@@ -105,16 +105,6 @@ class WorkoutDrawer extends React.Component {
           </View>
         </View>
         {renderList()}
-        {
-          // <Animated.View style={{height: this.state.cardHeight}}>
-          //   <ScrollView style={{position: 'relative', left: 0, top: 0}}>
-          //     <View style={{justifyContent: 'center', borderRadius: 8, flex: 1, backgroundColor: '#fff', padding: 10}}>
-          //       <Text style={{fontFamily: 'cubano-regular', fontSize: 20}}>Let's Get Sweaty</Text>
-          //       <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>Tap the add button to add a workout</Text>
-          //     </View>
-          //   </ScrollView>
-          // </Animated.View>
-        }
       </Animated.View>
     );
   }

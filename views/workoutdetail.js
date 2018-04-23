@@ -7,6 +7,7 @@ import WorkoutCard from '../components/workoutcard.js';
 import MenuItem from '../components/menuitem.js';
 import IntervalItem from '../components/intervalitem.js';
 import WorkoutDrawer from '../components/workoutdrawer.js';
+import Data from '../data.json';
 
 // https://github.com/bamlab/react-native-image-header-scroll-view
 
