@@ -7,6 +7,7 @@ import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
 import ListItem from '../components/listitem.js';
 import WorkoutDrawer from '../components/workoutdrawer.js';
+import Data from '../data.json';
 
 // https://stackoverflow.com/questions/39849648/horizontal-scrollview-snapping-react-native
 // React navigation has a bug that causes SafeAreaView to break https://github.com/infinitered/ignite/issues/1225#issuecomment-362800224
@@ -87,9 +88,9 @@ class HomeView extends React.Component {
               />
           </View>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginTop: 25, marginBottom: 15}}>Popular Workouts</Text>
-          <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} nextView={'Detail'} />
-          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} nextView={'Detail'} />
-          <ListItem title={'Tabata - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} nextView={'Detail'} />
+          <ListItem title={'Boxing - Beginner'} subtitle={'48:20'} navigation={this.props.navigation} nextView={'Timer'} data={Data[1].workouts[0]} />
+          <ListItem title={'Running - Intermediate'} subtitle={'24:00'} navigation={this.props.navigation} nextView={'Timer'} data={Data[0].workouts[1]} />
+          <ListItem title={'Bodyweight - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} nextView={'Timer'} data={Data[2].workouts[0]} />
         </ScrollView>
         <WorkoutDrawer navigation={this.props.navigation} />
       </View>

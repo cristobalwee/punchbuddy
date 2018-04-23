@@ -23,6 +23,7 @@ class ListItem extends React.Component {
 
   render() {
     const style = this.props.noshadow ? styles.listitemnoshadow : styles.listitem;
+    const nextWorkout = this.props.data;
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
@@ -31,7 +32,7 @@ class ListItem extends React.Component {
       <View style={style}>
         <TouchableHighlight
           underlayColor={'#fff'}
-          onPress={() => this.props.navigation.navigate(this.props.nextView)}>
+          onPress={() => this.props.navigation.navigate(this.props.nextView, {workout: nextWorkout})}>
           <View style={{flex: 1, flexDirection: 'row', padding: 15}}>
             <View>
               <Text style={{fontFamily: 'cubano-regular', fontSize: 16, paddingBottom: 3}}>{this.props.title}</Text>

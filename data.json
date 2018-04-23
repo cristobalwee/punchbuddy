@@ -9,7 +9,7 @@
         "intervals": [
           {
             "name": "Warmup",
-            "description": "Warmup: take a few seconds to get focused and ready.",
+            "description": "Take a few seconds to get focused and ready.",
             "length": 10
           },
           {
@@ -96,7 +96,7 @@
         "intervals": [
           {
             "name": "Warmup",
-            "description": "Warmup: take a few seconds to get focused and ready.",
+            "description": "Take a few seconds to get focused and ready.",
             "length": 10
           },
           {
@@ -235,32 +235,32 @@
         "intervals": [
           {
             "name": "Warmup",
-            "description": "Warmup: take a few seconds to get focused and ready.",
+            "description": "Take a few seconds to get focused and ready.",
             "length": 10
           },
           {
             "name": "Jabs",
-            "description": "Jabs: While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
+            "description": "While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
             "length": 20
           },
           {
             "name": "Rest",
-            "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+            "description": "Rest for the alotted time, remember to take deep breaths.",
             "length": 10
           },
           {
             "name": "Crosses",
-            "description": "Crosses: While in a boxing stance, continuosly shoot crosses with your dominant hand.",
+            "description": "While in a boxing stance, continuosly shoot crosses with your dominant hand.",
             "length": 20
           },
           {
             "name": "Rest",
-            "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+            "description": "Rest for the alotted time, remember to take deep breaths.",
             "length": 10
           },
           {
             "name": "Hook and Weave",
-            "description": "Jabs: While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
+            "description": "While in a boxing stance, continuosly shoot jabs with your non dominant hand.",
             "length": 20
           }
         ]
@@ -277,7 +277,7 @@
         "intervals": [
           {
             "name": "Warmup",
-            "description": "Warmup: take a few seconds to get focused and ready.",
+            "description": "Take a few seconds to get focused and ready.",
             "length": 10
           },
           {

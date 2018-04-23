@@ -6,146 +6,21 @@ import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
 import IntervalBar from '../components/intervalbar.js';
 
-const workout = {
-  "name": "Running - Intermediate",
-  "total_length": 1440,
-  "total_intervals": 24,
-  "intervals" : [
-    {
-      "name": "Warmup",
-      "description": "Warmup: take a few seconds to get focused and ready.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    }
-  ]
-};
-
 class TimerView extends React.Component {
   constructor(props) {
     super(props);
+    const { params } = this.props.navigation.state;
+    const workout = params.workout;
+
     this.timer = 0;
     this.state = {
       fontLoaded: false,
       totalTime: 0,
       intervals: 0,
       currentInterval: 0,
-      currentTime: 30,
+      currentTime: workout.intervals[0].length,
       timeElapsed: 0,
-      timeRemaining: 1440,
+      timeRemaining: workout.total_length,
       locked: false,
       playing: false
     };
@@ -160,6 +35,14 @@ class TimerView extends React.Component {
   }
 
   render() {
+    const { params } = this.props.navigation.state;
+    const workout = params.workout;
+    let next = null;
+    if (this.state.currentInterval === workout.total_intervals - 1) {
+      next = workout.intervals[this.state.currentInterval].name;
+    } else {
+      next = workout.intervals[this.state.currentInterval + 1].name;
+    }
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
@@ -173,6 +56,13 @@ class TimerView extends React.Component {
     }
 
     countDown = () => {
+      let done = false;
+      let interval = this.state.currentInterval + 1;
+      if (interval === workout.total_intervals - 1) {
+        done = true;
+      }
+      let time = workout.intervals[interval].length;
+
       let seconds = this.state.currentTime - 1;
       let total = this.state.timeRemaining - 1;
       let elapsed = this.state.timeElapsed + 1;
@@ -184,7 +74,12 @@ class TimerView extends React.Component {
 
       if (seconds === 0) {
         clearInterval(this.timer);
-        this.setState({ playing: false });
+        if (done) {
+          this.setState({ currentInterval: interval, currentTime: 0 });
+        } else {
+          this.setState({ currentInterval: interval, currentTime: time });
+          startTimer();
+        }
       }
     }
 
@@ -246,7 +141,13 @@ class TimerView extends React.Component {
         const difference = (time/60) - Math.floor(time/60);
         const diffMin = Math.round(difference * 60);
         if (time/60 < 10) {
+          if (diffMin < 10) {
+            return ("0" + Math.round(time/60) + ":0" + diffMin);
+          }
           return ("0" + Math.round(time/60) + ":" + diffMin);
+        }
+        if (diffMin < 10) {
+          return (Math.round(time/60) + ":0" + diffMin);
         }
         return (Math.round(time/60) + ":" + diffMin);
       }
@@ -270,7 +171,7 @@ class TimerView extends React.Component {
               />
             </TouchableHighlight>
             <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>{workout.name}</Text>
-            <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}>Edit</Text>
+            <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
           </View>
           <View style={styles.timercounter}>
             <Text style={{fontFamily: 'quicksand-light', fontSize: 108, textAlign: 'center'}}>{displayTime(this.state.currentTime)}</Text>
@@ -279,10 +180,15 @@ class TimerView extends React.Component {
             <TouchableHighlight
               underlayColor={'#fff'}
               onPress={() => {
-                if (this.state.locked) {
+                if (this.state.locked || this.state.currentInterval === 0) {
                   return;
                 }
-                this.props.navigation.goBack(null);
+                let interval = this.state.currentInterval - 1;
+                let time = workout.intervals[interval].length;
+                if (this.state.playing) {
+                  stopTimer();
+                }
+                this.setState({ currentInterval: interval, currentTime: time });
               }}>
               <Image
                 source={require('../assets/back_icon.png')}
@@ -293,10 +199,15 @@ class TimerView extends React.Component {
             <TouchableHighlight
               underlayColor={'#fff'}
               onPress={() => {
-                if (this.state.locked) {
+                if (this.state.locked || this.state.currentInterval === workout.total_intervals - 1) {
                   return;
                 }
-                this.props.navigation.goBack(null);
+                let interval = this.state.currentInterval + 1;
+                let time = workout.intervals[interval].length;
+                if (this.state.playing) {
+                  stopTimer();
+                }
+                this.setState({ currentInterval: interval, currentTime: time });
               }}>
               <Image
                 source={require('../assets/arrow_icon.png')}
@@ -339,8 +250,19 @@ class TimerView extends React.Component {
                 }
                 if (this.state.playing) {
                   stopTimer();
-                }
-                this.props.navigation.goBack(null);
+                };
+                Alert.alert(
+                  'Stop workout?',
+                  'Your progress will be lost.',
+                  [
+                    {text: 'OK', onPress: () => {
+                      this.props.navigation.goBack(null);
+                    }},
+                    {text: 'Cancel', onPress: () => {
+                      startTimer();
+                    }, style: 'cancel'}
+                  ]
+                );
               }}>
               <Image
                 source={require('../assets/stop_button.png')}
@@ -349,7 +271,12 @@ class TimerView extends React.Component {
             </TouchableHighlight>
           </View>
         </ScrollView>
-        <IntervalBar locked={this.state.locked} index={this.state.currentInterval} total={24} next={workout.intervals[this.state.currentInterval + 1].name} info={workout.intervals[0].description} />
+        <IntervalBar
+          locked={this.state.locked}
+          index={this.state.currentInterval}
+          total={workout.total_intervals}
+          next={next}
+          info={workout.intervals[this.state.currentInterval].description} />
       </View>
     );
   }

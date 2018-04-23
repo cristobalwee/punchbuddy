@@ -5,6 +5,7 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import styles from '../styles.js';
 import ListItem from '../components/listitem.js';
+import Data from '../data.json';
 
 // https://goshakkk.name/react-native-animated-appearance-disappearance/
 
@@ -36,12 +37,13 @@ class WorkoutDrawer extends React.Component {
   }
 
   render() {
+
     renderList = () => {
       if (this.state.drawerOpen) {
         return (
           <View style={styles.drawercontents}>
-            <ListItem title={'Boxing - Intermediate'} subtitle={'48:20'} navigation={this.props.navigation} noshadow nextView={'Detail'} />
-            <ListItem title={'Sparring - 3 minute rounds'} subtitle={'11:00'} navigation={this.props.navigation} noshadow nextView={'Detail'} />
+            <ListItem title={'Boxing - Beginner'} subtitle={'48:20'} navigation={this.props.navigation} noshadow nextView={'Timer'} data={Data[1].workouts[0]} />
+            <ListItem title={'Sparring - 3 minute rounds'} subtitle={'11:00'} navigation={this.props.navigation} noshadow nextView={'Timer'} data={Data[3].workouts[1]} />
           </View>
         );
       }
