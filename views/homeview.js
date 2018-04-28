@@ -1,6 +1,7 @@
 import React from 'react';
-import { FlatList, Text, View, ScrollView, Image, SafeAreaView, TouchableHighlight, Platform, Dimensions } from 'react-native';
+import { FlatList, Text, View, ScrollView, Image, TouchableHighlight, Platform, Dimensions } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { SafeAreaView } from 'react-navigation';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -59,7 +60,7 @@ class HomeView extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.homeview}>
           <View style={{flex: 1, flexDirection: 'row', marginBottom: 20}}>
             <Text style={{fontFamily: 'cubano-regular', fontSize: 32}}>Home</Text>
@@ -93,7 +94,7 @@ class HomeView extends React.Component {
           <ListItem title={'Bodyweight - Beginner'} subtitle={'28:00'} navigation={this.props.navigation} nextView={'Timer'} data={Data[2].workouts[0]} />
         </ScrollView>
         <WorkoutDrawer navigation={this.props.navigation} />
-      </View>
+      </SafeAreaView>
     );
   }
 }
