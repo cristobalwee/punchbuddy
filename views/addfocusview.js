@@ -12,7 +12,7 @@ const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window'
 
 // https://github.com/bamlab/react-native-image-header-scroll-view
 
-class WorkoutFocusView extends React.Component {
+class AddFocusView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,15 +97,15 @@ class WorkoutFocusView extends React.Component {
               style={{width: 9, height: 15}}
             />
           </TouchableHighlight>
-          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>{params.type}</Text>
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>{params.workout}</Text>
           <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
         {Data[params.idx].workouts.map((item, i) => (
-          <ListItem key={i} title={item.name} subtitle={displayTime(item.total_length)} navigation={this.props.navigation} nextView={'Timer'} data={item} />
+          <ListItem key={i} title={item.name} subtitle={displayTime(item.total_length)} navigation={this.props.navigation} nextView={'Detail'} data={item} />
         ))}
       </ScrollView>
     );
   }
 }
 
-export default WorkoutFocusView;
+export default AddFocusView;

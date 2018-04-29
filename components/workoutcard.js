@@ -22,6 +22,7 @@ class WorkoutCard extends React.Component {
   }
 
   render() {
+    let index = 0;
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
@@ -29,6 +30,7 @@ class WorkoutCard extends React.Component {
     renderImage = () => {
       switch (this.props.type) {
         case 'boxing':
+          index = 1;
           return (
             <Image
               source={require('../assets/boxing.png')}
@@ -45,6 +47,7 @@ class WorkoutCard extends React.Component {
           );
           break;
         case 'cycling':
+          index = 4;
           return (
             <Image
               source={require('../assets/cycling.png')}
@@ -53,6 +56,7 @@ class WorkoutCard extends React.Component {
           );
           break;
         case 'bodyweight':
+          index = 2;
           return (
             <Image
               source={require('../assets/bodyweight.png')}
@@ -61,6 +65,7 @@ class WorkoutCard extends React.Component {
           );
           break;
         case 'sparring':
+          index = 3;
           return (
             <Image
               source={require('../assets/sparring.png')}
@@ -69,6 +74,7 @@ class WorkoutCard extends React.Component {
           );
           break;
         case 'weights':
+          index = 5;
           return (
             <Image
               source={require('../assets/weights.png')}
@@ -142,7 +148,7 @@ class WorkoutCard extends React.Component {
       <View style={styles.workoutcard}>
         <TouchableHighlight
           underlayColor={'#fff'}
-          onPress={() => this.props.navigation.navigate('Focus', {type: this.props.type})}>
+          onPress={() => this.props.navigation.navigate('Focus', {type: this.props.type, idx: index})}>
           <View>
             <View style={styles.imagecontainer}>
               {renderImage()}

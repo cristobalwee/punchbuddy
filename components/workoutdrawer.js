@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight, Animated, ScrollView, Platform, Dimensions, Easing } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated, ScrollView, Platform, Dimensions, Easing, AsyncStorage } from 'react-native';
 import { Font } from 'expo';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import styles from '../styles.js';
 import ListItem from '../components/listitem.js';
 import Data from '../data.json';
-import MyWorkouts from '../workouts.json';
 
 // https://goshakkk.name/react-native-animated-appearance-disappearance/
 
@@ -20,21 +19,29 @@ class WorkoutDrawer extends React.Component {
       drawerOpen: false,
       animation: new Animated.Value(),
       fade: new Animated.Value(0),
-      cardHeight: new Animated.Value()
+      cardHeight: new Animated.Value(),
+      myWorkouts: []
     };
   }
 
   async componentDidMount() {
+    let data = null;
+    try {
+      const value = await AsyncStorage.getItem('@MySuperStore:workouts');
+      if (value !== null){
+        data = JSON.parse(value);
+        this.setState({ myWorkouts: data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     await Font.loadAsync({
       'cubano-regular': require('../assets/fonts/cubano-regular-webfont.ttf'),
       'quicksand-light': require('../assets/fonts/Quicksand-Light.ttf')
     });
 
     this.setState({ fontLoaded: true });
-  }
-
-  animateTo() {
-
   }
 
   render() {
@@ -71,7 +78,7 @@ class WorkoutDrawer extends React.Component {
       if (this.state.drawerOpen) {
         return (
           <View style={styles.drawercontents}>
-            {MyWorkouts.map((item, i) => (
+            {this.state.myWorkouts.map((item, i) => (
               <ListItem key={i} title={item.name} subtitle={displayTime(item.total_length)} navigation={this.props.navigation} noshadow nextView={'Timer'} data={item} />
             ))}
           </View>
@@ -81,7 +88,7 @@ class WorkoutDrawer extends React.Component {
       return null;
     }
 
-    if (!this.state.fontLoaded) {
+    if (!this.state.fontLoaded || this.state.myWorkouts === null) {
       return <Text>Loading</Text>
     }
 

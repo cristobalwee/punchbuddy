@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image, Alert, AsyncStorage } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -11,143 +11,29 @@ import Data from '../data.json';
 
 // https://github.com/bamlab/react-native-image-header-scroll-view
 
-const workout = {
-  "name": "Running - Intermediate",
-  "total_length": 1440,
-  "total_intervals": 24,
-  "intervals" : [
-    {
-      "name": "Warmup",
-      "description": "Warmup: take a few seconds to get focused and ready.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    },
-    {
-      "name": "Rest",
-      "description": "Rest: rest for the alotted time, remember to take deep breaths.",
-      "length": 30
-    },
-    {
-      "name": "Sprint",
-      "description": "Sprint: run as fast as possible for the alotted time.",
-      "length": 30
-    }
-  ]
-}
-
 class WorkoutDetailView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fontLoaded: false,
+      myWorkouts: []
     };
   }
 
   async componentDidMount() {
+    let data = null;
+    try {
+      const value = await AsyncStorage.getItem('@MySuperStore:workouts');
+      if (value !== null){
+        data = JSON.parse(value);
+        if (Array.isArray(data)) {
+          this.setState({ myWorkouts: data });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     await Font.loadAsync({
       'cubano-regular': require('../assets/fonts/cubano-regular-webfont.ttf')
     });
@@ -173,11 +59,11 @@ class WorkoutDetailView extends React.Component {
                 style={{width: 9, height: 15}}
               />
             </TouchableHighlight>
-            <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Workout Detail</Text>
+            <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>{params.workout.name}</Text>
             <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
           </View>
-          {workout.intervals.map((item, i) => {
-            return <IntervalItem key={i} title={i + 1 + '/' + workout.total_intervals} subtitle={item.name + ', 00:' + item.length} />
+          {params.workout.intervals.map((item, i) => {
+            return <IntervalItem key={i} title={i + 1 + '/' + params.workout.total_intervals} subtitle={item.name + ', 00:' + item.length} />
           })}
         </ScrollView>
         <View style={styles.addworkoutbutton}>
@@ -187,7 +73,20 @@ class WorkoutDetailView extends React.Component {
                 'Add workout',
                 'Would you like to add this to your workouts?',
                 [
-                  {text: 'OK', onPress: () => console.log('OK Pressed')},
+                  {text: 'OK', onPress: () => {
+                    console.log('OK Pressed');
+                    this.state.myWorkouts.push(params.workout);
+                    try {
+                      AsyncStorage.setItem('@MySuperStore:workouts', JSON.stringify(this.state.myWorkouts));
+                    } catch (error) {
+                      console.log(error);
+                    }
+                    this.props.navigation.navigate('Home');
+                    // this.props.navigation.goBack(null);
+                    // this.props.navigation.goBack(null);
+                    // this.props.navigation.goBack(null);
+                    // this.props.navigation.goBack(null);
+                  }},
                   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
                 ]
               );

@@ -7,7 +7,7 @@ import WorkoutCard from '../components/workoutcard.js';
 import MenuItem from '../components/menuitem.js';
 import ListItem from '../components/listitem.js';
 
-class AddView extends React.Component {
+class AddCustomView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,21 +40,21 @@ class AddView extends React.Component {
               style={{width: 9, height: 15}}
             />
           </TouchableHighlight>
-          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Add Workout</Text>
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Add Custom Workout</Text>
           <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <Image
-            source={require('../assets/workout_icon.png')}
+            source={require('../assets/intervals_icon.png')}
             style={{width: 124, height: 124, marginBottom: 25}}
           />
         </View>
-        <Text style={{fontFamily: 'cubano-regular', fontSize: 22, textAlign: 'center', marginBottom: 25}}>Custom or Preset?</Text>
-        <ListItem title={'Preset'} subtitle={'Pick from a variety of preset workouts'} navigation={this.props.navigation} nextView={'AddPreset'} />
-        <ListItem title={'Custom'} subtitle={'Choose specific interval and rest times'} navigation={this.props.navigation} nextView={'AddCustom'} />
+        <Text style={{fontFamily: 'cubano-regular', fontSize: 22, textAlign: 'center', marginBottom: 25}}>Interval Structure</Text>
+        <ListItem title={'Standard'} subtitle={'All intervals are of same length'} navigation={this.props.navigation} nextView={'AddPreset'} />
+        <ListItem title={'Custom'} subtitle={'Different lengths for certain intervals'} navigation={this.props.navigation} nextView={'AddCustom'} />
       </ScrollView>
     );
   }
 }
 
-export default AddView;
+export default AddCustomView;

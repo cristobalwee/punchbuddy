@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
 import { StackNavigator, SafeAreaView } from 'react-navigation';
 import axios from 'axios';
 
@@ -9,7 +9,11 @@ import ProfileView from './views/profile.js';
 import TimerView from './views/timerview.js';
 import WorkoutFocusView from './views/workoutfocus.js';
 import AddView from './views/addview.js';
+import AddPresetView from './views/addpresetview.js';
+import AddCustomView from './views/addcustomview.js';
+import AddFocusView from './views/addfocusview.js';
 import WorkoutDetailView from './views/workoutdetail.js';
+import MyWorkouts from './workouts.json';
 
 // https://github.com/corbt/react-native-keep-awake
 // https://github.com/skevy/react-native-gsap-demo
@@ -40,6 +44,15 @@ const RootStack = StackNavigator(
     AddWorkout: {
       screen: AddView
     },
+    AddPreset: {
+      screen: AddPresetView
+    },
+    AddCustom: {
+      screen: AddCustomView
+    },
+    AddFocus: {
+      screen: AddFocusView
+    },
     Detail: {
       screen: WorkoutDetailView
     }
@@ -51,6 +64,15 @@ const RootStack = StackNavigator(
 );
 
 export default class App extends React.Component {
+  componentDidMount() {
+    const workouts = [];
+    try {
+      AsyncStorage.setItem('@MySuperStore:workouts', JSON.stringify(workouts));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return <RootStack />;
   }

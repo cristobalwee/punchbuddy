@@ -7,7 +7,9 @@ import WorkoutCard from '../components/workoutcard.js';
 import MenuItem from '../components/menuitem.js';
 import ListItem from '../components/listitem.js';
 
-class AddView extends React.Component {
+const types = ['running', 'boxing', 'bodyweight', 'sparring', 'cycling', 'weights'];
+
+class AddPresetView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,21 +42,15 @@ class AddView extends React.Component {
               style={{width: 9, height: 15}}
             />
           </TouchableHighlight>
-          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Add Workout</Text>
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Add Preset Workout</Text>
           <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Image
-            source={require('../assets/workout_icon.png')}
-            style={{width: 124, height: 124, marginBottom: 25}}
-          />
-        </View>
-        <Text style={{fontFamily: 'cubano-regular', fontSize: 22, textAlign: 'center', marginBottom: 25}}>Custom or Preset?</Text>
-        <ListItem title={'Preset'} subtitle={'Pick from a variety of preset workouts'} navigation={this.props.navigation} nextView={'AddPreset'} />
-        <ListItem title={'Custom'} subtitle={'Choose specific interval and rest times'} navigation={this.props.navigation} nextView={'AddCustom'} />
+        {types.map((item, i) => (
+          <ListItem key={i} title={item} subtitle={'Pick from a variety of preset workouts'} navigation={this.props.navigation} nextView={'AddFocus'} data={item} index={i} />
+        ))}
       </ScrollView>
     );
   }
 }
 
-export default AddView;
+export default AddPresetView;
