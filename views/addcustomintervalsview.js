@@ -20,14 +20,29 @@ class AddCustomIntervalsView extends React.Component {
       interval_name: "Work",
       intervals: 12,
       workout: [],
-      interval_length: 60,
-      rest_length: 30,
+      total_length: 0,
       interval_info: "Let's get sweaty",
       myWorkouts: []
     };
   }
 
   async componentDidMount() {
+    let workouts = [{
+      "name": "Warmup",
+      "description": "Take a few seconds to get focused and ready.",
+      "length": 10
+    }];
+    let length = 10;
+    for (let i = 0; i < this.state.intervals; i++) {
+      workouts.push({
+        "name": "Interval " + (i + 1),
+        "description": "This is interval " + (i + 1),
+        "length": 30
+      });
+      length += 30;
+    };
+    this.setState({ workout: workouts,  total_length: length});
+
     let data = null;
     try {
       const value = await AsyncStorage.getItem('@MySuperStore:workouts');
@@ -79,30 +94,34 @@ class AddCustomIntervalsView extends React.Component {
     }
 
     renderIntervals = () => {
-      let intervals = [];
-      for (let i = 0; i < this.state.intervals; i++) {
-        intervals.push(i);
-      }
-      return intervals.map((i) => (
+      return this.state.workout.map((item, i) => (
         <View key={i} style={{marginBottom: 10}}>
           <Text style={{fontFamily: 'cubano-regular', fontSize: 16, marginBottom: 15}}>Interval {i + 1}</Text>
           <MenuItem
             title={"Interval Name"}
-            subtitle={"Interval " + (i + 1)}
+            subtitle={item.name}
             callback={(text) => {
-              this.setState({ interval_name: text });
+              let tempWorkout = this.state.workout;
+              tempWorkout[i].name = text;
+              this.setState({ workout: tempWorkout });
             }} />
           <MenuItem
             title={"Interval Length"}
-            subtitle={displayTime(30)}
+            subtitle={displayTime(item.length)}
             callback={(text) => {
-              this.setState({ interval_length: text });
+              let tempWorkout = this.state.workout;
+              let length = this.state.total_length;
+              tempWorkout[i].length = text;
+              length += text;
+              this.setState({ workout: tempWorkout, total_length: length });
             }} />
           <MenuItem
             title={"Interval Info"}
-            info={"This is interval " + (i + 1)}
+            info={item.description}
             callback={(text) => {
-              this.setState({ interval_info: text });
+              let tempWorkout = this.state.workout;
+              tempWorkout[i].description = text;
+              this.setState({ workout: tempWorkout });
             }} />
         </View>
       ));
@@ -152,34 +171,11 @@ class AddCustomIntervalsView extends React.Component {
                 [
                   {text: 'OK', onPress: () => {
                     console.log('OK Pressed');
-                    let intervals = [
-                      {
-                        "name": "Warmup",
-                        "description": "Take a few seconds to get focused and ready.",
-                        "length": 10
-                      }
-                    ];
-                    for (let i = 0; i < this.state.intervals/2; i += 2) {
-                      intervals.push(
-                        {
-                          "name": this.state.interval_name,
-                          "description": this.state.interval_info,
-                          "length": this.state.interval_length
-                        }
-                      );
-                      intervals.push(
-                        {
-                          "name": "Rest",
-                          "description": "Rest for the alotted time, remember to take deep breaths.",
-                          "length": this.state.rest_length
-                        }
-                      );
-                    }
                     let workout = {
                       "name": this.state.name,
-                      "total_length": (this.state.intervals * this.state.interval_length) + (this.state.intervals * this.state.rest_length),
+                      "total_length": this.state.total_length,
                       "total_intervals": this.state.intervals,
-                      "intervals": intervals
+                      "intervals": this.state.workout
                     }
                     this.state.myWorkouts.push(workout);
                     try {
