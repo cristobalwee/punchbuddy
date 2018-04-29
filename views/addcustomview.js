@@ -50,8 +50,8 @@ class AddCustomView extends React.Component {
           />
         </View>
         <Text style={{fontFamily: 'cubano-regular', fontSize: 22, textAlign: 'center', marginBottom: 25}}>Interval Structure</Text>
-        <ListItem title={'Standard'} subtitle={'All intervals are of same length'} navigation={this.props.navigation} nextView={'AddPreset'} />
-        <ListItem title={'Custom'} subtitle={'Different lengths for certain intervals'} navigation={this.props.navigation} nextView={'AddCustom'} />
+        <ListItem title={'Standard'} subtitle={'All intervals are of same length'} navigation={this.props.navigation} nextView={'AddStandardIntervals'} />
+        <ListItem title={'Custom'} subtitle={'Different lengths for certain intervals'} navigation={this.props.navigation} nextView={'AddCustomIntervals'} />
       </ScrollView>
     );
   }

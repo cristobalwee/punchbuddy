@@ -76,6 +76,17 @@ class WorkoutDrawer extends React.Component {
 
     renderList = () => {
       if (this.state.drawerOpen) {
+        if (this.state.myWorkouts.length === 0) {
+          return (
+            <View style={styles.drawercontents}>
+              <View style={{backgroundColor: '#fff', borderRadius: 12, marginBottom: 15, padding: 10, paddingTop: 15, paddingBottom: 15}}>
+                <Text style={{fontFamily: 'cubano-regular', fontSize: 20, paddingBottom: 3, textAlign: 'center'}}>Let's Get Sweaty</Text>
+                <Text style={{fontFamily: 'quicksand-light', fontSize: 16, textAlign: 'center'}}>Tap the add button to add a workout</Text>
+              </View>
+            </View>
+          )
+        };
+
         return (
           <View style={styles.drawercontents}>
             {this.state.myWorkouts.map((item, i) => (

@@ -12,6 +12,8 @@ import AddView from './views/addview.js';
 import AddPresetView from './views/addpresetview.js';
 import AddCustomView from './views/addcustomview.js';
 import AddFocusView from './views/addfocusview.js';
+import AddStandardIntervalsView from './views/addstandardintervalsview.js';
+import AddCustomIntervalsView from './views/addcustomintervalsview.js';
 import WorkoutDetailView from './views/workoutdetail.js';
 import MyWorkouts from './workouts.json';
 
@@ -49,6 +51,12 @@ const RootStack = StackNavigator(
     },
     AddCustom: {
       screen: AddCustomView
+    },
+    AddStandardIntervals: {
+      screen: AddStandardIntervalsView
+    },
+    AddCustomIntervals: {
+      screen: AddCustomIntervalsView
     },
     AddFocus: {
       screen: AddFocusView

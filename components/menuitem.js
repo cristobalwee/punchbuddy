@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, AlertIOS } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -28,18 +28,32 @@ class MenuItem extends React.Component {
 
     return (
       <View style={styles.listitem}>
-        <View style={{flex: 1, flexDirection: 'row', padding: 15}}>
-          <View>
-            <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>{this.props.title}</Text>
+        <TouchableHighlight
+          underlayColor={'#fff'}
+          onPress={() => {
+            const info = this.props.info;
+            AlertIOS.prompt(
+              'Enter a value',
+              info,
+              (text) => {
+                console.log("You entered " + text);
+                this.props.callback(text);
+              }
+            );
+          }}>
+          <View style={{flex: 1, flexDirection: 'row', padding: 15}}>
+            <View>
+              <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>{this.props.title}</Text>
+            </View>
+            <View style={styles.badge}>
+              <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>{this.props.subtitle}</Text>
+              <Image
+                source={require('../assets/arrow_icon.png')}
+                style={{width: 9, height: 15, marginLeft: 10, marginTop: 3}}
+              />
+            </View>
           </View>
-          <View style={styles.badge}>
-            <Text style={{fontFamily: 'quicksand-light', fontSize: 16}}>{this.props.subtitle}</Text>
-            <Image
-              source={require('../assets/arrow_icon.png')}
-              style={{width: 9, height: 15, marginLeft: 10, marginTop: 3}}
-            />
-          </View>
-        </View>
+        </TouchableHighlight>
       </View>
     );
   }
