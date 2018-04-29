@@ -1,0 +1,201 @@
+[
+  {
+    "name": "Bodyweight - Beginner",
+    "total_length": 640,
+    "total_intervals": 32,
+    "intervals": [
+      {
+        "name": "Warmup",
+        "description": "Take a few seconds to get focused and ready.",
+        "length": 10
+      },
+      {
+        "name": "Squats",
+        "description": "Perform as many bodyweight squats as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Pushups",
+        "description": "Perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Lunges",
+        "description": "Perform as many bodyweight lunges (on both legs) as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Ab Crunches",
+        "description": "Perform as many crunches as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Side-to-side hops",
+        "description": "Hop from side to side with both legs",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Close grip pushups",
+        "description": "With your hands in the shape of a diamond (or just very close together), perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Jumping jacks",
+        "description": "Peform as many jumping jacks as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Burpees",
+        "description": "Perform as many burpees as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Squats",
+        "description": "Perform as many bodyweight squats as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Pushups",
+        "description": "Perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Lunges",
+        "description": "Perform as many bodyweight lunges (on both legs) as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Ab Crunches",
+        "description": "Perform as many crunches as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Side-to-side hops",
+        "description": "Hop from side to side with both legs",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Close grip pushups",
+        "description": "With your hands in the shape of a diamond (or just very close together), perform as many pushups as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Jumping jacks",
+        "description": "Peform as many jumping jacks as possible.",
+        "length": 30
+      },
+      {
+        "name": "Rest",
+        "description": "Rest: rest for the alotted time, remember to take deep breaths.",
+        "length": 10
+      },
+      {
+        "name": "Burpees",
+        "description": "Perform as many burpees as possible.",
+        "length": 30
+      },
+    ]
+  },
+  {
+    "name": "Sparring - 3 minute rounds",
+    "total_length": 660,
+    "total_intervals": 5,
+    "intervals": [
+      {
+        "name": "Round 1",
+        "description": "Square up and spar with a partner.",
+        "length": 180
+      },
+      {
+        "name": "Rest",
+        "description": "Take a minute to rest and catch your breath.",
+        "length": 60
+      },
+      {
+        "name": "Round 2",
+        "description": "Square up and spar with a partner.",
+        "length": 180
+      },
+      {
+        "name": "Rest",
+        "description": "Take a minute to rest and catch your breath.",
+        "length": 60
+      },
+      {
+        "name": "Round 3",
+        "description": "Square up and spar with a partner.",
+        "length": 180
+      },
+    ]
+  }
+]

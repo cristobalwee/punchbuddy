@@ -6,6 +6,7 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import styles from '../styles.js';
 import ListItem from '../components/listitem.js';
 import Data from '../data.json';
+import MyWorkouts from '../workouts.json';
 
 // https://goshakkk.name/react-native-animated-appearance-disappearance/
 
@@ -37,13 +38,42 @@ class WorkoutDrawer extends React.Component {
   }
 
   render() {
+    displayTime = (time) => {
+      if (time/60 < 1) {
+        if (time < 10) {
+          return ("00:0" + time);
+        }
+        return ("00:" + time);
+      } else {
+        if (time % 60 === 0) {
+          if (time/60 < 10) {
+            return ("0" + time/60 + ":00");
+          }
+          return (time/60 + ":00");
+        }
+
+        const difference = (time/60) - Math.floor(time/60);
+        const diffMin = Math.round(difference * 60);
+        if (time/60 < 10) {
+          if (diffMin < 10) {
+            return ("0" + Math.round(time/60) + ":0" + diffMin);
+          }
+          return ("0" + Math.round(time/60) + ":" + diffMin);
+        }
+        if (diffMin < 10) {
+          return (Math.round(time/60) + ":0" + diffMin);
+        }
+        return (Math.round(time/60) + ":" + diffMin);
+      }
+    }
 
     renderList = () => {
       if (this.state.drawerOpen) {
         return (
           <View style={styles.drawercontents}>
-            <ListItem title={'Boxing - Beginner'} subtitle={'48:20'} navigation={this.props.navigation} noshadow nextView={'Timer'} data={Data[1].workouts[0]} />
-            <ListItem title={'Sparring - 3 minute rounds'} subtitle={'11:00'} navigation={this.props.navigation} noshadow nextView={'Timer'} data={Data[3].workouts[1]} />
+            {MyWorkouts.map((item, i) => (
+              <ListItem key={i} title={item.name} subtitle={displayTime(item.total_length)} navigation={this.props.navigation} noshadow nextView={'Timer'} data={item} />
+            ))}
           </View>
         );
       }

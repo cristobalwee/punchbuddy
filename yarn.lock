@@ -4782,6 +4782,12 @@ react-native-gesture-handler@1.0.0-alpha.28:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-image-header-scroll-view@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/react-native-image-header-scroll-view/-/react-native-image-header-scroll-view-0.8.2.tgz#df9e2eb8fcbe0136131d77176bdc07f06b3e6896"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-native-maps@0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.0.tgz#d10fa94a049432c46b6ee03fe9db84c83da65c8b"

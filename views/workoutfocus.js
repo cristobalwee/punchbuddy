@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image, Dimensions } from 'react-native';
+import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
 import WorkoutCard from '../components/workoutcard.js';
 import MenuItem from '../components/menuitem.js';
 import ListItem from '../components/listitem.js';
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 // https://github.com/bamlab/react-native-image-header-scroll-view
 
@@ -30,6 +32,29 @@ class WorkoutFocusView extends React.Component {
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
     }
+    let img = null;
+    switch (params.type) {
+      case 'boxing':
+        img = require('../assets/boxing.png');
+        break;
+      case 'running':
+        img = require('../assets/running.png')
+        break;
+      case 'cycling':
+        img = require('../assets/cycling.png')
+        break;
+      case 'bodyweight':
+        img = require('../assets/bodyweight.png')
+        break;
+      case 'sparring':
+        img = require('../assets/sparring.png')
+        break;
+      case 'weights':
+        img = require('../assets/weights.png')
+        break;
+      default:
+        break;
+    };
 
     return (
       <ScrollView contentInsetAdjustmentBehavior={"always"} style={styles.profileview}>

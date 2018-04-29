@@ -39,6 +39,11 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     backgroundColor: '#fff'
   },
+  focusview: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#fff'
+  },
   badge: {
     flex: 1,
     flexDirection: 'row',
