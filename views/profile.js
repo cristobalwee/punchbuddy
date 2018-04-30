@@ -56,7 +56,7 @@ class ProfileView extends React.Component {
           callback={(text) => {
             this.setState({ name: text });
           }} />
-        <MenuItem title={"Workout time"} subtitle={"00:12:34:20"} />
+        <MenuItem title={"Workout time"} subtitle={"00:00:00:00"} />
         <MenuItem title={"Email"} subtitle={""} />
       </ScrollView>
     );

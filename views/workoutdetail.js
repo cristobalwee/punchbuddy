@@ -42,6 +42,35 @@ class WorkoutDetailView extends React.Component {
   }
 
   render() {
+    displayTime = (time) => {
+      if (time/60 < 1) {
+        if (time < 10) {
+          return ("00:0" + time);
+        }
+        return ("00:" + time);
+      } else {
+        if (time % 60 === 0) {
+          if (time/60 < 10) {
+            return ("0" + time/60 + ":00");
+          }
+          return (time/60 + ":00");
+        }
+
+        const difference = (time/60) - Math.floor(time/60);
+        const diffMin = Math.round(difference * 60);
+        if (time/60 < 10) {
+          if (diffMin < 10) {
+            return ("0" + Math.round(time/60) + ":0" + diffMin);
+          }
+          return ("0" + Math.round(time/60) + ":" + diffMin);
+        }
+        if (diffMin < 10) {
+          return (Math.round(time/60) + ":0" + diffMin);
+        }
+        return (Math.round(time/60) + ":" + diffMin);
+      }
+    }
+
     const { params } = this.props.navigation.state;
     if (!this.state.fontLoaded) {
       return <Text>Loading</Text>
@@ -63,7 +92,7 @@ class WorkoutDetailView extends React.Component {
             <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
           </View>
           {params.workout.intervals.map((item, i) => {
-            return <IntervalItem key={i} title={i + 1 + '/' + params.workout.total_intervals} subtitle={item.name + ', 00:' + item.length} />
+            return <IntervalItem key={i} title={i + 1 + '/' + params.workout.total_intervals} subtitle={item.name + ', ' + displayTime(item.length)} />
           })}
         </ScrollView>
         <View style={styles.addworkoutbutton}>
