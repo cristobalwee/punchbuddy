@@ -76,6 +76,7 @@ export default class App extends React.Component {
     const workouts = [];
     try {
       AsyncStorage.setItem('@MySuperStore:workouts', JSON.stringify(workouts));
+      AsyncStorage.setItem('@MySuperStore:name', 'Punchy McPunch');
     } catch (error) {
       console.log(error);
     }

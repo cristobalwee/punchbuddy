@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight, Image, AsyncStorage } from 'react-native';
 import { Font } from 'expo';
 
 import styles from '../styles.js';
@@ -11,10 +11,12 @@ class ProfileView extends React.Component {
     super(props);
     this.state = {
       fontLoaded: false,
+      name: 'Punchy McPunch'
     };
   }
 
   async componentDidMount() {
+
     await Font.loadAsync({
       'cubano-regular': require('../assets/fonts/cubano-regular-webfont.ttf')
     });
@@ -41,7 +43,19 @@ class ProfileView extends React.Component {
           <Text style={{fontFamily: 'cubano-regular', fontSize: 16}}>Profile</Text>
           <Text style={{fontFamily: 'quicksand-light', fontSize: 14}}></Text>
         </View>
-        <MenuItem title={"Name"} subtitle={"Punchy McPunch"} />
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image
+            source={require('../assets/profile_icon.png')}
+            style={{width: 124, height: 124, marginBottom: 15}}
+          />
+          <Text style={{fontFamily: 'cubano-regular', fontSize: 20, marginBottom: 15}}>{this.state.name}</Text>
+        </View>
+        <MenuItem
+          title={"Name"}
+          subtitle={this.state.name}
+          callback={(text) => {
+            this.setState({ name: text });
+          }} />
         <MenuItem title={"Workout time"} subtitle={"00:12:34:20"} />
         <MenuItem title={"Email"} subtitle={""} />
       </ScrollView>
